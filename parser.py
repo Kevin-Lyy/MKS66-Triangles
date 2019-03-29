@@ -133,6 +133,7 @@ def parse_file( fname, edges, polygons, transform, screen, color ):
 
         elif line == 'apply':
             matrix_mult( transform, edges )
+            matrix_mult(transform, polygons)
 
         elif line == 'clear':
             edges = []
@@ -141,6 +142,7 @@ def parse_file( fname, edges, polygons, transform, screen, color ):
         elif line == 'display' or line == 'save':
             clear_screen(screen)
             draw_lines(edges, screen, color)
+            draw_polygons(polygons, screen, color)
 
             if line == 'display':
                 display(screen)
